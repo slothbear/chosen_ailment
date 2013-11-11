@@ -8,6 +8,8 @@ gem 'rails', '3.0.20'
 gem 'sqlite3'
 gem 'jquery-rails'
 gem "minitest", "4.7.5"
+gem "capybara"
+gem "minitest-rails-capybara"
 
 # Use unicorn as the web server
 # gem 'unicorn'

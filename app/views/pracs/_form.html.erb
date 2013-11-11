@@ -25,23 +25,26 @@
   <br>
   <%= f.label :ailment_id %>
   <br>
-
-  <%= debug @prac.ailment_id %>
+  <strong>prac.ailment_id</strong>
+  <br>
+  <%= debug @prac.ailment_id.class %>
+  <br>
+  <%= debug @prac.ailment_id.inspect %>
   <hr>
-  <%= select_tag("prac[ailment_attributes][id]",
-  options_from_collection_for_select(
+  <%= f.collection_select :ailment_id,
     Ailment.choices(params),
-    "id", "name", @prac.ailment_id),
-  :include_blank => true,
+    "id", "name", {:include_blank => true},
+
   :class => 'chosen-select',
   'data-placeholder' => "Select item",
   :style => "width: 400px"
-  )
+
   %>
+  <br>
+  <strong>prac.attributes.inspect</strong>
   <%= debug(@prac.attributes) %>
   <hr>
-  <%= debug(@prac.ailment_id.inspect) %>
-  <hr>
+  <strong>params</strong>
   <%= debug(params) %>
   <br>
   <br>

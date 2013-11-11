@@ -1,0 +1,11 @@
+<%= f.fields_for :ailment do |af| %>
+  <div class="field">
+  <%= af.label :ailment_id %><br />
+  <%= af.collection_select(:id, Ailment.all, :id, :name,
+    {:include_blank => true},
+    {:class => 'chosen-select',
+    'data-placeholder' => "Select item",
+    :style => "width: 400px"}
+    ) %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<h1>Listing pracs</h1>
+
+<table>
+  <tr>
+    <th>name</th>
+    <th>ailment</th>
+    <th>category</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pracs.each do |prac| %>
+  <tr>
+    <td><%= prac.name %></td>
+    <td><%= prac.ailment %></td>
+    <td><%= prac.category %></td>
+    <td><%= link_to 'Show', prac %></td>
+    <td><%= link_to 'Edit', edit_prac_path(prac) %></td>
+    <td><%= link_to 'Destroy', prac, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Prac', new_prac_path %>

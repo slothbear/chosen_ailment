@@ -1,0 +1,54 @@
+<%= form_for(@prac) do |f| %>
+  <% if @prac.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@prac.errors.count, "error") %> prohibited this prac from being saved:</h2>
+
+      <ul>
+      <% @prac.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category %><br />
+    <%= f.text_field :category %>
+  </div>
+
+  <div class="field" style="background-color:pink;">
+  <br>
+  <%= f.label :ailment_id %>
+  <br>
+
+  <%= debug @prac.ailment_id %>
+  <hr>
+  <%= select_tag("prac[ailment_attributes][id]",
+  options_from_collection_for_select(
+    Ailment.choices(params),
+    "id", "name", @prac.ailment_id),
+  :include_blank => true,
+  :class => 'chosen-select',
+  'data-placeholder' => "Select item",
+  :style => "width: 400px"
+  )
+  %>
+  <%= debug(@prac.attributes) %>
+  <hr>
+  <%= debug(@prac.ailment_id.inspect) %>
+  <hr>
+  <%= debug(params) %>
+  <br>
+  <br>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

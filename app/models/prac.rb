@@ -1,6 +1,6 @@
 class Prac < ActiveRecord::Base
   belongs_to :ailment
-  attr_accessible :ailment_attributes, :name, :ailment, :category, :ailment_id
+  attr_accessible :name, :ailment_id
 
   validates_presence_of :name
 

@@ -1,17 +1,17 @@
 class Ailment < ActiveRecord::Base
-  def to_s
-    name
-  end
-
 
   def self.find_or_create(aid)
     if integer?(aid)
       Ailment.find_by_id(aid)
     elsif aid.present?
-      Ailment.create(:name => aid, :category => aid)
+      Ailment.find_or_create_by_name(aid)
     else
       Ailment.new
     end
+  end
+
+  def to_s
+    name
   end
 
   private

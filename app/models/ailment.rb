@@ -8,9 +8,9 @@ class Ailment < ActiveRecord::Base
 
   def self.find_or_create(new_id)
     if integer?(new_id)
-      Ailment.find_by_id(new_id)
+      find_by_id(new_id)
     elsif new_id.present?
-      Ailment.find_or_create_by_name(new_id)
+      find_or_create_by_name(new_id)
     else
       nil  # nil is returned automatically if the if/elsif isn't matched.
            # make this condition explicit for now

@@ -1,7 +1,7 @@
 class Ailment < ActiveRecord::Base
 
-  # Select menus via Koenpunt/Chosen [1] allows user to select
-  # an existing Ailment or type in a new ailment name.
+  # Select menus via Koenpunt/Chosen [1] allows user to
+  # select an existing Ailment or type in a new ailment name.
   #   *  Existing ailments are represented by integers.
   #   *  A new ailment name is passed as a string.
   #   *  If no choice is made, a blank string is passed.

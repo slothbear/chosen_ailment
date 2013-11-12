@@ -6,16 +6,13 @@ class Ailment < ActiveRecord::Base
   #   *  A new ailment name is passed as a string.
   #   *  If no choice is made, a blank string is passed.
 
-  def self.find_or_initialize(new_id)
-    if integer?(new_id)
-      find_by_id(new_id)
-    elsif new_id.present?
-      find_or_initialize_by_name(new_id)
-    else
-      nil  # nil is returned automatically if the if/elsif isn't matched.
-           # make this condition explicit for now
+  def self.find_or_initialize(attribute)
+    if integer?(attribute)
+      find_by_id(attribute)
+    elsif attribute.present?
+      find_or_initialize_by_name(attribute)
     end
-  end
+  end  # returns nil if attribute is blank string
 
   def self.choices(new_choice)
     list = order("lower(name)")

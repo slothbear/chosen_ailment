@@ -25,7 +25,6 @@ class PracsController < ApplicationController
   # GET /pracs/new.xml
   def new
     @prac = Prac.new
-    @prac.build_ailment
 
     respond_to do |format|
       format.html # new.html.erb

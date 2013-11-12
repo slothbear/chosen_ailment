@@ -6,11 +6,11 @@ class Ailment < ActiveRecord::Base
   #   *  A new ailment name is passed as a string.
   #   *  If no choice is made, a blank string is passed.
 
-  def self.find_or_create(new_id)
+  def self.find_or_initialize(new_id)
     if integer?(new_id)
       find_by_id(new_id)
     elsif new_id.present?
-      find_or_create_by_name(new_id)
+      find_or_initialize_by_name(new_id)
     else
       nil  # nil is returned automatically if the if/elsif isn't matched.
            # make this condition explicit for now

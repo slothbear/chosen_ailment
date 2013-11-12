@@ -17,6 +17,12 @@ class Ailment < ActiveRecord::Base
     end
   end
 
+  def self.choices(new_choice)
+    list = order("lower(name)")
+    list.unshift(new(:name => new_choice)) if new_choice
+    list
+  end
+
   def to_s
     name
   end

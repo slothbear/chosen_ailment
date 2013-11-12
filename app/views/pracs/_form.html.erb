@@ -22,36 +22,20 @@
   </div>
 
   <div class="field" style="background-color:pink;">
-  <br>
-  <%= f.label :ailment_id %>
-  <br>
-  <strong>prac.ailment_id</strong>
-  <br>
-  <%= debug @prac.ailment_id.class %>
-  <br>
-  <%= debug @prac.ailment_id.inspect %>
-  <hr>
-  <%= f.collection_select :ailment_id,
-    Ailment.choices(params),
-    "id", "name", {:include_blank => true},
-
-  :class => 'chosen-select',
-  'data-placeholder' => "Select item",
-  :style => "width: 400px"
-
-  %>
-  <br>
-  <strong>prac.attributes.inspect</strong>
-  <%= debug(@prac.attributes) %>
-  <hr>
-  <strong>params</strong>
-  <%= debug(params) %>
-  <br>
-  <br>
+    <%= f.label :ailment_id %><br />
+    <%= f.collection_select :ailment_id,
+      Ailment.choices(params),
+      "id", "name",
+      {:include_blank => true},
+      :class => 'chosen-select',
+      'data-placeholder' => "Select ailment",
+      :style => "width: 400px"
+    %>
   </div>
 
-
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

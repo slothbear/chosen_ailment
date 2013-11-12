@@ -3,14 +3,6 @@ class Ailment < ActiveRecord::Base
     name
   end
 
-  def self.choices(params)
-    return Ailment.all
-    choices = Ailment.all
-    if params.has_key?("prac")
-      choices << Ailment.new(:name => [:prac][:ailment_id])
-    end
-    choices
-  end
 
   def self.find_or_create(aid)
     if integer?(aid)

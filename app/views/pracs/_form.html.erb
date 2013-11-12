@@ -24,7 +24,7 @@
   <div class="field" style="background-color:pink;">
     <%= f.label :ailment_id %><br />
     <%= f.collection_select :ailment_id,
-      Ailment.choices(params),
+      Ailment.all,
       "id", "name",
       {:include_blank => true},
       :class => 'chosen-select',

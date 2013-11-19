@@ -40,7 +40,9 @@ class PracsController < ApplicationController
   # POST /pracs
   # POST /pracs.xml
   def create
-    @prac = Prac.new(params[:prac])
+    ailment_id, prac_params = isolate_id(:ailment_id, params[:prac])
+    @prac = Prac.new(prac_params)
+    @prac.ailment = Ailment.find_or_new_name(ailment_id)
 
     respond_to do |format|
       if @prac.save

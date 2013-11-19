@@ -1,4 +1,5 @@
 class Ailment < ActiveRecord::Base
+  validates :name, :presence => true
 
   # Select menus via Koenpunt/Chosen [1] allows user to
   # select an existing Ailment or type in a new ailment name.
@@ -6,7 +7,7 @@ class Ailment < ActiveRecord::Base
   #   *  A new ailment name is passed as a string.
   #   *  If no choice is made, a blank string is passed.
 
-  def self.find_or_initialize(attribute)
+  def self.find_or_new_name(attribute)
     if integer?(attribute)
       find_by_id(attribute)
     elsif attribute.present?

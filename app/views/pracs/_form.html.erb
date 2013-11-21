@@ -22,7 +22,7 @@
     <% params_ailment = params[:prac] && params[:prac][:ailment_id] %>
 
     <% choices = Ailment.choices(params_ailment) %>
-    <% selected = @prac.ailment_id || params_ailment %>
+    <% selected = params_ailment || @prac.ailment_id %>
     <% options = options_from_collection_for_select(choices, :id_value, :name, selected) %>
 
     <%= f.select :ailment_id, options,

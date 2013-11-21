@@ -19,7 +19,7 @@ class Ailment < ActiveRecord::Base
 
   def self.choices(new_choice)
     list = order("lower(name)")
-    list.unshift(new(:name => new_choice)) if new_choice
+    list.unshift(new(:name => new_choice)) if new_choice && !integer?(new_choice)
     list
   end
 

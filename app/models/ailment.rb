@@ -27,6 +27,10 @@ class Ailment < ActiveRecord::Base
     name
   end
 
+  def id_value
+    id.present? ? id : name
+  end
+
   private
 
   # THANKS: Sarah Mei [2]

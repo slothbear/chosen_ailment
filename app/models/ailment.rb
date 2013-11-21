@@ -12,8 +12,10 @@ class Ailment < ActiveRecord::Base
       find_by_id(attribute)
     elsif attribute.present?
       find_or_initialize_by_name(attribute)
+    else
+      nil
     end
-  end  # returns nil if attribute is blank string
+  end
 
   def self.choices(new_choice)
     list = order("lower(name)")

@@ -20,8 +20,8 @@
     <%= f.label :ailment_id %><br />
 
     <% choices = Ailment.choices(params[:prac] && params[:prac][:ailment_id]) %>
-    <% options = options_from_collection_for_select(choices, :id, :name,
-         @prac.ailment_id || "") %>
+    <% selected = @prac.ailment_id || "" %>
+    <% options = options_from_collection_for_select(choices, :id_value, :name, selected) %>
 
     <%= f.select :ailment_id, options,
       {:include_blank => true},

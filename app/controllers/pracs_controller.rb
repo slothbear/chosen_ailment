@@ -58,10 +58,12 @@ class PracsController < ApplicationController
   # PUT /pracs/1
   # PUT /pracs/1.xml
   def update
+    ailment_id, prac_params = isolate_id(:ailment_id, params[:prac])
     @prac = Prac.find(params[:id])
+    @prac.ailment = Ailment.find_or_new_name(ailment_id)
 
     respond_to do |format|
-      if @prac.update_attributes(params[:prac])
+      if @prac.update_attributes(prac_params)
         format.html { redirect_to(@prac, :notice => 'Prac was successfully updated.') }
         format.xml  { head :ok }
       else
